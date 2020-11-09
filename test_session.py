@@ -19,6 +19,10 @@ class SessionTest(unittest.TestCase):
     def test_password_shorter_than_eight(self):
         self.assertEqual(self.session.validate_password("moje"), False)
 
+    @unittest.skip
+    def test_password_at_least_one_capital_letter(self):
+        self.assertEqual(self.session.validate_password("Moje"), True)
+
     def assertRaisesWithMessage(self, exception):
         return self.assertRaisesRegex(exception, r".+")
 
