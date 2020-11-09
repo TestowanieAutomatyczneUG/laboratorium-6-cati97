@@ -13,6 +13,9 @@ class SessionTest(unittest.TestCase):
     def test_password_not_empty(self):
         self.assertEqual(self.session.validate_password(""), False)
 
+    def test_password_longer_than_eight(self):
+        self.assertEqual(self.session.validate_password("mojehaslo2020"), True)
+
     def assertRaisesWithMessage(self, exception):
         return self.assertRaisesRegex(exception, r".+")
 
