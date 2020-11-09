@@ -50,7 +50,6 @@ class Hamming:
         ValueError: Strands must have the same length
         """
 
-
         if len(first) == len(second):
             count_diff = 0
             for i in range(len(first)):
