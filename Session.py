@@ -6,3 +6,5 @@ class Session:
             return False
         elif len(password) >= 8:
             return True
+        else:
+            return False
