@@ -8,7 +8,12 @@ class Session:
                 if letter in alphabet:
                     for digit in password:
                         if digit in digits:
-                            return True
+                            for symbol in password:
+                                if symbol in special_symbols:
+                                    return True
+                                else:
+                                    continue
+                            return False
                         else:
                             continue
                     return False
