@@ -10,6 +10,9 @@ class SessionTest(unittest.TestCase):
         except AttributeError:
             self.assertRaisesRegex = self.assertRaisesRegexp
 
+    def test_password_not_empty(self):
+        self.assertEqual(self.session.validate_password(""), False)
+
     def assertRaisesWithMessage(self, exception):
         return self.assertRaisesRegex(exception, r".+")
 
