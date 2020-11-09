@@ -1,4 +1,6 @@
 class Session:
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
     def validate_password(self, password):
         if password == "":
             return False
