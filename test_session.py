@@ -22,6 +22,9 @@ class SessionTest(unittest.TestCase):
     def test_password_at_least_one_capital_letter(self):
         self.assertEqual(self.session.validate_password("mojeHaslo2020"), True)
 
+    def test_password_at_least_one_capital_letter_false(self):
+        self.assertEqual(self.session.validate_password("mojemalehaslo"), False)
+
     def assertRaisesWithMessage(self, exception):
         return self.assertRaisesRegex(exception, r".+")
 
