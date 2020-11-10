@@ -26,6 +26,24 @@ class Session:
         False
         >>> s.validate_password("2134EBASDFGG?")
         True
+        >>> s.validate_password("Pogodaladna 2020$")
+        Traceback (most recent call last):
+          File "C:\\Users\\Katarzyna\\AppData\\Local\\Programs\\Python\\Python36\\lib\\doctest.py", line 1330, in __run
+            compileflags, 1), test.globs)
+          File "<doctest __main__.Session.validate_password[13]>", line 1, in <module>
+            s.validate_password("Pogodaladna 2020$")
+          File "C:/Users/Katarzyna/Desktop/3 semestr/Testowanie Automatyczne/lab6/laboratorium-6-cati97/Session.py", line 53, in validate_password
+            raise ValueError("Password cannot contain whitespaces!")
+        ValueError: Password cannot contain whitespaces!
+        >>> s.validate_password(15)
+        Traceback (most recent call last):
+          File "C:\\Users\\Katarzyna\\AppData\\Local\\Programs\\Python\\Python36\\lib\\doctest.py", line 1330, in __run
+            compileflags, 1), test.globs)
+          File "<doctest __main__.Session.validate_password[13]>", line 1, in <module>
+            s.validate_password(15)
+          File "C:/Users/Katarzyna/Desktop/3 semestr/Testowanie Automatyczne/lab6/laboratorium-6-cati97/Session.py", line 53, in validate_password
+            raise ValueError("Password must of type string")
+        ValueError: Password must of type string
         """
         special_symbols = {'~', ':', "'", '+', '[', '\\', '@', '^', '{', '%', '(', '-', '"', '*', '|', ',', '&', '<', '`', '}', '.', '_', '=', ']', '!', '>', ';', '?', '#', '$', ')', '/'}
 
