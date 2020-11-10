@@ -50,8 +50,20 @@ class zad3Test(unittest.TestCase):
             "othello": {"name": "Othello", "type": "tragedy"}
         }
         result = statement(self.invoice, plays)
-        first_line = result.split("\n")[4]
-        self.assertEqual(first_line, "Amount owed is $1,600.00")
+        fourth_line = result.split("\n")[4]
+        self.assertEqual(fourth_line, "Amount owed is $1,600.00")
+
+
+    def test_second_line_result(self):
+        plays = {
+            "hamlet": {"name": "Hamlet", "type": "tragedy"},
+            "as-like": {"name": "As You Like It", "type": "tragedy"},
+            "othello": {"name": "Othello", "type": "tragedy"}
+        }
+        result = statement(self.invoice, plays)
+        second_line = result.split("\n")[1]
+        self.assertEqual(second_line, " Hamlet: $650.00 (55 seats)")
+
 
 
     def assertRaisesWithMessage(self, exception):
