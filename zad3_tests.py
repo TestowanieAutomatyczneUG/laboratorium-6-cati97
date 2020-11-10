@@ -23,22 +23,20 @@ class zad3Test(unittest.TestCase):
             ]
         }
 
-        self.plays = {
+    def test_exception_not_tragedy_nor_comedy(self):
+        plays = {
             "hamlet": {"name": "Hamlet", "type": "document"},
             "as-like": {"name": "As You Like It", "type": "document"},
             "othello": {"name": "Othello", "type": "document"}
         }
-
-    def test_exception_not_tragedy_nor_comedy(self):
         with self.assertRaisesWithMessage(ValueError):
-            statement(self.invoice, self.plays)
+            statement(self.invoice, plays)
 
     def assertRaisesWithMessage(self, exception):
         return self.assertRaisesRegex(exception, r".+")
 
     def tearDown(self):
         self.invoice = None
-        self.plays = None
 
 
 if __name__ == '__main__':
