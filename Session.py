@@ -1,5 +1,32 @@
 class Session:
     def validate_password(self, passwd):
+        """
+        >>> s = Session()
+        >>> s.validate_password("")
+        False
+        >>> s.validate_password("mojehaslohaslo")
+        False
+        >>> s.validate_password("moje")
+        False
+        >>> s.validate_password("mojeHaslo2020")
+        False
+        >>> s.validate_password("mojemalehaslo")
+        False
+        >>> s.validate_password("haslo3Wielkie")
+        False
+        >>> s.validate_password("MojeWielkie20!")
+        True
+        >>> s.validate_password("Duze?has201hm")
+        True
+        >>> s.validate_password("2134Haslomm*m")
+        True
+        >>> s.validate_password("2134aslomm*m")
+        False
+        >>> s.validate_password("2134abcdE?")
+        False
+        >>> s.validate_password("2134EBASDFGG?")
+        True
+        """
         special_symbols = {'~', ':', "'", '+', '[', '\\', '@', '^', '{', '%', '(', '-', '"', '*', '|', ',', '&', '<', '`', '}', '.', '_', '=', ']', '!', '>', ';', '?', '#', '$', ')', '/'}
 
         if type(passwd) == str:
@@ -26,3 +53,7 @@ class Session:
         else:
             raise ValueError("Password must of type string")
 
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
