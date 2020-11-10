@@ -54,7 +54,7 @@ class SessionTest(unittest.TestCase):
         return self.assertRaisesRegex(exception, r".+")
 
     def tearDown(self):
-        self.hamming = None
+        self.session = None
 
 
 if __name__ == '__main__':
