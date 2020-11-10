@@ -5,10 +5,6 @@ import unittest
 class SessionTest(unittest.TestCase):
     def setUp(self):
         self.session = Session()
-        try:
-            self.assertRaisesRegex
-        except AttributeError:
-            self.assertRaisesRegex = self.assertRaisesRegexp
 
     def test_password_not_empty(self):
         self.assertEqual(self.session.validate_password(""), False)
@@ -47,7 +43,12 @@ class SessionTest(unittest.TestCase):
         self.assertEqual(self.session.validate_password("2134EBASDFGG?"), True)
 
     def test_password_contains_a_space(self):
-        self.assertEqual(self.session.validate_password("Pogoda2 020@"), False)
+        with self.assertRaisesWithMessage(ValueError):
+            self.session.validate_password("Pogodaladna 2020$")
+
+    def test_password_not_a_str(self):
+        with self.assertRaisesWithMessage(ValueError):
+            self.session.validate_password(15)
 
     def assertRaisesWithMessage(self, exception):
         return self.assertRaisesRegex(exception, r".+")
