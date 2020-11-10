@@ -74,6 +74,16 @@ class zad3Test(unittest.TestCase):
         third_line = result.split("\n")[2]
         self.assertEqual(third_line, " As You Like It: $450.00 (35 seats)")
 
+    def test_fourth_line_result(self):
+        plays = {
+            "hamlet": {"name": "Hamlet", "type": "tragedy"},
+            "as-like": {"name": "As You Like It", "type": "tragedy"},
+            "othello": {"name": "Othello", "type": "tragedy"}
+        }
+        result = statement(self.invoice, plays)
+        fourth = result.split("\n")[3]
+        self.assertEqual(fourth, " Othello: $500.00 (40 seats)")
+
 
     def assertRaisesWithMessage(self, exception):
         return self.assertRaisesRegex(exception, r".+")
