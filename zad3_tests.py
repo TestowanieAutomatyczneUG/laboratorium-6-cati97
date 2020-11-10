@@ -32,6 +32,17 @@ class zad3Test(unittest.TestCase):
         with self.assertRaisesWithMessage(ValueError):
             statement(self.invoice, plays)
 
+    def test_first_line_of_result(self):
+        plays = {
+            "hamlet": {"name": "Hamlet", "type": "tragedy"},
+            "as-like": {"name": "As You Like It", "type": "comedy"},
+            "othello": {"name": "Othello", "type": "tragedy"}
+        }
+        result = statement(self.invoice, plays)
+        first_line = result.split("\n")[0]
+        self.assertEqual(first_line, "Statement for BigCo")
+
+
     def assertRaisesWithMessage(self, exception):
         return self.assertRaisesRegex(exception, r".+")
 

@@ -44,7 +44,8 @@ def statement(invoice, plays):
         if play['type'] == "tragedy":
             this_amount = 40000
             if perf['audience'] > 30:
-                this_amount += 1000 * (perf['audience'] - 30)
+                this_amount += 1000 * (perf['audience'] - 30)  #  40000 += 25 000, 5000, 10 000
+                # this_amount = 80 000
         elif play['type'] == "comedy":
             this_amount = 30000
             if perf['audience'] > 20:
